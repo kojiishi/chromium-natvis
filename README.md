@@ -6,27 +6,49 @@ A local fork of [blink.natvis] for chromium.
 
 ## Install
 
-Install the `blink.natvis` to one of the [natvis file locations].
+You can download the natvis file, or clone the repository,
+and place it in one of the [natvis file locations].
 
-If you prefer to clone to under the "Documents" directory,
-the "Documents" directory may be redirected,
-such as to the "Documents" directory in OneDrive.
-PowerShell can find the correct "Documents" directory.
+If you want to save under your "Documents" directory,
+be aware that your "Documents" directory is redirected,
+to such as the one in OneDrive.
+PowerShell can find it by the following command:
 ```
 PS> cd ([Environment]::GetFolderPath('MyDocuments'))
 PS> cd "Visual Studio 2019"
-PS> ren Visualizers Visualizers.bak
-PS> git clone https://github.com/kojiishi/chromium-natvis.git Visualizers
-PS> move Visualizers.bak\* Visualizers
+PS> cd Visualizers
 ```
 
+### Download
+
+Downlaod `blink.natvis` from
+[here](https://raw.githubusercontent.com/kojiishi/chromium-natvis/main/blink.natvis)
+and save to one of the [natvis file locations].
+
+### Clone
+
+```
+> cd ..
+> ren Visualizers Visualizers.bak
+> git clone https://github.com/kojiishi/chromium-natvis.git Visualizers
+> move Visualizers.bak\* Visualizers
+```
+
+### Local vs PDB
+
 Often `natvis` built into PDB files win over your local files.
-To remove `natvis` from PDB files,
-comment out the `natvis` files in `BUILD.gn`.
+
+You may be able to reload it by the "`.natvisreload`" command
+in the **Immediate** window.
+Please see [Modify .natvis files while debugging] for more details.
+
+If you prefer to remove `natvis` from PDB files,
+you can comment out the `natvis` files in `BUILD.gn`.
 See [DebugVisualizers/README].
 
 If you change `BUILD.gn` in your repo,
-you can also do the following to avoid checking in the changes to `BUILD.gn`.
+you may also want to avoid checking in the change.
+The following command can avoid checking in the changes to `BUILD.gn`.
 ```
 > git update-index --skip-worktree tools/win/DebugVisualizers/BUILD.gn
 ```
@@ -34,7 +56,7 @@ Confirm it's skipped:
 ```
 > git ls-files -v | grep ^S
 ```
-or revert back when you need:
+Or revert back when you need:
 ```
 > git update-index --no-skip-worktree tools/win/DebugVisualizers/BUILD.gn
 ```
@@ -43,4 +65,5 @@ You may prefer `--assume-unchanged` instead of `--skip-worktree`,
 depending on your work style.
 
 [DebugVisualizers/README]: https://source.chromium.org/chromium/chromium/src/+/main:tools/win/DebugVisualizers/README.md
+[Modify .natvis files while debugging]: https://docs.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2019#modify-natvis-files-while-debugging
 [natvis file locations]: https://docs.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2019#BKMK_natvis_location
