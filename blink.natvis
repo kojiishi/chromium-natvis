@@ -234,12 +234,14 @@
       </Synthetic>
     </Expand>
   </Type>
-  <Type Name="blink::NGPhysicalFragment">
-    <DisplayString>{(blink::NGPhysicalFragment::NGFragmentType)type_} {size_} {*layout_object_.raw_}</DisplayString>
+  <Type Name="blink::NGPhysicalFragment" ExcludeView="subclass">
+    <DisplayString>{(blink::NGPhysicalFragment::NGFragmentType)type_} {size_} {*layout_object_}</DisplayString>
     <Expand>
+      <Item Name="layout_object_">layout_object_</Item>
+      <Item Name="break_token_" Condition="break_token_.ptr_ != 0">break_token_</Item>
       <!-- Resolve subclasses because VS can't resolve without virtual functions -->
-      <ExpandedItem Condition="type_ == 0">(blink::NGPhysicalBoxFragment*)this</ExpandedItem>
-      <ExpandedItem Condition="type_ == 1">(blink::NGPhysicalLineBoxFragment*)this</ExpandedItem>
+      <ExpandedItem Condition="type_ == 0">(blink::NGPhysicalBoxFragment*)this,view(subclass)</ExpandedItem>
+      <ExpandedItem Condition="type_ == 1">(blink::NGPhysicalLineBoxFragment*)this,view(subclass)</ExpandedItem>
     </Expand>
   </Type>
   <Type Name="blink::NGPhysicalBoxFragment">
@@ -255,6 +257,8 @@
         </Expand>
       </Synthetic>
     </Expand>
+  </Type>
+  <Type Name="blink::NGPhysicalLineBoxFragment">
   </Type>
   <Type Name="blink::NGFragmentItem">
     <Expand>

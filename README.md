@@ -30,6 +30,15 @@ you can also do the following to avoid checking in the changes to `BUILD.gn`.
 ```
 > git update-index --skip-worktree tools/win/DebugVisualizers/BUILD.gn
 ```
+Confirm it's skipped:
+```
+> git ls-files -v | grep ^S
+```
+or revert back when you need:
+```
+> git update-index --no-skip-worktree tools/win/DebugVisualizers/BUILD.gn
+```
+
 You may prefer `--assume-unchanged` instead of `--skip-worktree`,
 depending on your work style.
 
