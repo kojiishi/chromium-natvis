@@ -5,14 +5,14 @@
     <DisplayString Condition="raw_ == 0">null</DisplayString>
     <DisplayString>{*raw_}</DisplayString>
     <Expand>
-      <ExpandedItem>raw_</ExpandedItem>
+      <Item Name="Raw">raw_</Item>
     </Expand>
   </Type>
   <Type Name="blink::PersistentBase&lt;*&gt;">
     <DisplayString Condition="raw_ == 0">null</DisplayString>
     <DisplayString>{*raw_}</DisplayString>
     <Expand>
-      <ExpandedItem>raw_</ExpandedItem>
+      <Item Name="Raw">raw_</Item>
     </Expand>
   </Type>
   <Type Name="WTF::String">
@@ -20,7 +20,7 @@
     <DisplayString IncludeView="bare">{*impl_.ptr_,view(bare)}</DisplayString>
     <DisplayString>{*impl_.ptr_}</DisplayString>
     <Expand>
-      <ExpandedItem>impl_.ptr_</ExpandedItem>
+      <Item Name="Impl">impl_.ptr_</Item>
     </Expand>
   </Type>
   <Type Name="WTF::StringImpl">
@@ -85,7 +85,7 @@
     <DisplayString Condition="ptr_ == 0">null</DisplayString>
     <DisplayString>{*ptr_}</DisplayString>
     <Expand>
-      <ExpandedItem>ptr_</ExpandedItem>
+      <Item Name="Ptr">ptr_</Item>
     </Expand>
   </Type>
   <Type Name="blink::LayoutUnit">
