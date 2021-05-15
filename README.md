@@ -36,14 +36,12 @@ and save to one of the [natvis file locations].
 
 ### Local vs PDB
 
-Often `natvis` built into PDB files win over your local files.
+Often _.natvis_ files built into PDB files win over your local files.
+You [can't update _.natvis_ files that are embedded in .pdb files while you're
+debugging](https://docs.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2019#:~:text=You%20can%27t%20update%20.natvis%20files%20that%20are%20embedded%20in%20.pdb%20files%20while%20you%27re%20debugging.).
 
-You may be able to reload it by the "`.natvisreload`" command
-in the **Immediate** window.
-Please see [Modify .natvis files while debugging] for more details.
-
-If you prefer to remove `natvis` from PDB files,
-you can comment out the `natvis` files in `BUILD.gn`.
+If you prefer to remove _.natvis_ files from PDB files,
+you can comment out the _.natvis_ files in `BUILD.gn`.
 See [DebugVisualizers/README].
 
 If you change `BUILD.gn` in your repo,
@@ -56,7 +54,7 @@ Confirm it's skipped:
 ```
 > git ls-files -v | grep ^S
 ```
-Or revert back when you need:
+When you want to revert it back to the original state:
 ```
 > git update-index --no-skip-worktree tools/win/DebugVisualizers/BUILD.gn
 ```
@@ -65,5 +63,4 @@ You may prefer `--assume-unchanged` instead of `--skip-worktree`,
 depending on your work style.
 
 [DebugVisualizers/README]: https://source.chromium.org/chromium/chromium/src/+/main:tools/win/DebugVisualizers/README.md
-[Modify .natvis files while debugging]: https://docs.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2019#modify-natvis-files-while-debugging
 [natvis file locations]: https://docs.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2019#BKMK_natvis_location
