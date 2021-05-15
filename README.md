@@ -7,11 +7,12 @@ A local fork of [blink.natvis] for chromium.
 ## Install
 
 You can download the natvis file, or clone the repository,
-and place it in one of the [natvis file locations].
+and place it in one of the [Natvis file locations].
 
-If you want to save under your "Documents" directory,
-be aware that your "Documents" directory is redirected,
-to such as the one in OneDrive.
+If you want to save it in your "_Documents_" directory,
+be aware that your "_Documents_" directory may be redirected
+to other directory than "_%USERPROFILE%\Documents_",
+such as the one in OneDrive.
 PowerShell can find it by the following command:
 ```
 PS> cd ([Environment]::GetFolderPath('MyDocuments'))
@@ -23,7 +24,7 @@ PS> cd Visualizers
 
 Downlaod `blink.natvis` from
 [here](https://raw.githubusercontent.com/kojiishi/chromium-natvis/main/blink.natvis)
-and save to one of the [natvis file locations].
+and save to one of the [Natvis file locations].
 
 ### Clone
 
@@ -31,7 +32,6 @@ and save to one of the [natvis file locations].
 > cd ..
 > ren Visualizers Visualizers.bak
 > git clone https://github.com/kojiishi/chromium-natvis.git Visualizers
-> move Visualizers.bak\* Visualizers
 ```
 
 ### Local vs PDB
@@ -63,4 +63,4 @@ You may prefer `--assume-unchanged` instead of `--skip-worktree`,
 depending on your work style.
 
 [DebugVisualizers/README]: https://source.chromium.org/chromium/chromium/src/+/main:tools/win/DebugVisualizers/README.md
-[natvis file locations]: https://docs.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2019#BKMK_natvis_location
+[Natvis file locations]: https://docs.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2019#BKMK_natvis_location
