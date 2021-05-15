@@ -165,14 +165,14 @@
   <Type Name="blink::ContainerNode">
     <Expand>
       <LinkedListItems>
-        <HeadPointer>first_child_.raw_</HeadPointer>
-        <NextPointer>next_.raw_</NextPointer>
+        <HeadPointer>first_child_</HeadPointer>
+        <NextPointer>next_</NextPointer>
         <ValueNode>this</ValueNode>
       </LinkedListItems>
     </Expand>
   </Type>
   <Type Name="blink::Element">
-    <DisplayString Condition="first_child_.raw_ != 0">&lt;{tag_name_}>{first_child_}</DisplayString>
+    <DisplayString Condition="first_child_ != 0">&lt;{tag_name_}>{first_child_}</DisplayString>
     <DisplayString>&lt;{tag_name_}></DisplayString>
   </Type>
   <!-- Layout: LayoutObject -->
@@ -183,8 +183,8 @@
   <Type Name="blink::LayoutObjectChildList">
     <Expand>
       <LinkedListItems>
-        <HeadPointer>first_child_.raw_</HeadPointer>
-        <NextPointer>next_.raw_</NextPointer>
+        <HeadPointer>first_child_</HeadPointer>
+        <NextPointer>next_</NextPointer>
         <ValueNode>this</ValueNode>
       </LinkedListItems>
     </Expand>
