@@ -287,10 +287,10 @@
     <Expand>
       <Item Name="text_content_">text_content_</Item>
       <Synthetic Name="Items">
-        <DisplayString>{const_size_}</DisplayString>
+        <DisplayString>{size_}</DisplayString>
         <Expand>
           <ArrayItems>
-            <Size>const_size_</Size>
+            <Size>size_</Size>
             <ValuePointer>items_</ValuePointer>
           </ArrayItems>
         </Expand>
