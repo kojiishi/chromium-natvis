@@ -22,7 +22,7 @@ cd Visualizers
 
 ### Download
 
-Downlaod `blink.natvis` from
+Download `blink.natvis` from
 [here](https://raw.githubusercontent.com/kojiishi/chromium-natvis/main/blink.natvis)
 and save to one of the [Natvis file locations].
 
