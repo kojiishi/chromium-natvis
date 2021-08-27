@@ -15,9 +15,9 @@ to other directory than "_%USERPROFILE%\Documents_",
 such as the one in OneDrive.
 PowerShell can find it by the following command:
 ```
-PS> cd ([Environment]::GetFolderPath('MyDocuments'))
-PS> cd "Visual Studio 2019"
-PS> cd Visualizers
+cd ([Environment]::GetFolderPath('MyDocuments'))
+cd "Visual Studio 2019"
+cd Visualizers
 ```
 
 ### Download
@@ -29,9 +29,9 @@ and save to one of the [Natvis file locations].
 ### Clone
 
 ```
-> cd ..
-> ren Visualizers Visualizers.bak
-> git clone https://github.com/kojiishi/chromium-natvis.git Visualizers
+cd ..
+ren Visualizers Visualizers.bak
+git clone https://github.com/kojiishi/chromium-natvis.git Visualizers
 ```
 
 ### Local vs PDB
@@ -48,15 +48,15 @@ If you change `BUILD.gn` in your repo,
 you may also want to avoid checking in the change.
 The following command can avoid checking in the changes to `BUILD.gn`.
 ```
-> git update-index --skip-worktree tools/win/DebugVisualizers/BUILD.gn
+git update-index --skip-worktree tools/win/DebugVisualizers/BUILD.gn
 ```
 Confirm it's skipped:
 ```
-> git ls-files -v | grep ^S
+git ls-files -v | grep ^S
 ```
 When you want to revert it back to the original state:
 ```
-> git update-index --no-skip-worktree tools/win/DebugVisualizers/BUILD.gn
+git update-index --no-skip-worktree tools/win/DebugVisualizers/BUILD.gn
 ```
 
 You may prefer `--assume-unchanged` instead of `--skip-worktree`,
