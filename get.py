@@ -33,8 +33,8 @@ class VsNatVis(object):
     @staticmethod
     def copy(src_dir: Path, dst_dirs: Iterable[Path]):
         for file in src_dir.iterdir():
-            name = file.name
-            if name.endswith(".natvis") or name.endswith(".natstepfilter"):
+            suffix = file.suffix
+            if suffix == ".natvis" or suffix == ".natstepfilter":
                 logging.info(f"Copying {file.name} in {file.parent}")
                 for dst_dir in dst_dirs:
                     logging.info(f"Copying -> {dst_dir}")
