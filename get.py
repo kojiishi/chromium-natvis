@@ -22,8 +22,13 @@ class VsNatVis(object):
         pass
     
     def get(self):
-        src_dir = VsNatVis.chromium_natvis_dir()
-        VsNatVis.copy(src_dir, list(VsNatVis.user_dirs()))
+        chromium_src = VsNatVis.chromium_src_dir()
+        src_dirs = [
+            chromium_src / "tools" / "win" / "DebugVisualizers",
+            chromium_src / "build" / "config" / "c++"
+        ]
+        for src_dir in src_dirs:
+            VsNatVis.copy(src_dir, list(VsNatVis.user_dirs()))
     
     @staticmethod
     def copy(src_dir: Path, dst_dirs: Iterable[Path]):
@@ -36,9 +41,8 @@ class VsNatVis(object):
                     shutil.copy(file, dst_dir)
 
     @staticmethod
-    def chromium_natvis_dir() -> Path:
-        chromium_src = Path(os.environ["CHROMIUM_SRC"])
-        return chromium_src / "tools" / "win" / "DebugVisualizers"
+    def chromium_src_dir() -> Path:
+        return Path(os.environ["CHROMIUM_SRC"])
 
     @staticmethod
     def user_dirs() -> Iterator[Path]:
